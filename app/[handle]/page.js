@@ -3,8 +3,21 @@ import clientPromise from '@/lib/mongodb'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { connection } from "next/server";
+import { Suspense } from 'react';
 
-export default async function Page({ params }) {
+
+
+
+export default function HandlePage({ params }) {
+  return (
+    <Suspense fallback={<div>Loading Linktree...</div>}>
+      <Page params={params} />
+    </Suspense>
+  );
+}
+
+
+ async function Page({ params }) {
 
     const handle=(await params).handle
     await connection;

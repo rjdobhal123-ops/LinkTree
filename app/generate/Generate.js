@@ -79,7 +79,7 @@ const submitlinks= async ()=>{
 
         
 
-      <div className="form flex flex-col gap-8 justify-center items-center px-6">
+      <div className="form flex flex-col gap-8 justify-center items-center px-6 py-6 md:py-0">
         <h1 className='text-3xl font-bold'>Create your LinkTree</h1>
 
         <div className='flex flex-col gap-2 justify-center items-center'>
@@ -90,7 +90,7 @@ const submitlinks= async ()=>{
         <div className='flex flex-col gap-2 justify-center items-center'>
         <h2 className='text-md font-semibold'>Step 2: Add your links</h2>
         {link && link.map((item, index)=>{
-            return <div key={index} className='flex gap-2'>
+            return <div key={index} className='flex flex-col md:flex-row gap-4 md:gap-2'>
         <input value={item.linktext||""} onChange={e=>{handlechange(index, item.link, e.target.value)}} className='focus:outline-2 rounded-full py-2 px-4 bg-white' type="text" placeholder='Link Text' />
         <input value={item.link||""} onChange={e=>{handlechange(index, e.target.value, item.linktext)}} className='focus:outline-2 rounded-full py-2 px-4 bg-white' type="text" placeholder='Link' />
         </div>
@@ -100,7 +100,7 @@ const submitlinks= async ()=>{
 
         <div className='flex flex-col gap-2 justify-center items-center'>
         <h2 className='text-md font-semibold'>Step 3: Add picture and description</h2>
-        <div className='flex gap-2'>
+        <div className='flex flex-col md:flex-row gap-2'>
         <input value={profile||""} onChange={e=>setprofile(e.target.value)} className='focus:outline-2 rounded-full py-2 px-4 bg-white' type="text" placeholder='Enter link to your picture' />
         <input value={desc||""} onChange={e=>setdesc(e.target.value)} className='focus:outline-2 rounded-full py-2 px-4 bg-white' type="text" placeholder='Add description' />
         </div>

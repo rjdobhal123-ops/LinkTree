@@ -34,7 +34,7 @@ export default function HandlePage({ params }) {
 
   return (
     <div className='min-h-screen bg-purple-200 flex justify-center items-center py-4'>
-      {item &&<div className='h-auto w-[70vw] md:w-[30vw]  flex flex-col gap-4 justify-center items-center  border-purple-600 shadow rounded-3xl py-3 shadow-2xl shadow-purple-950'>
+      {item &&<div className='h-auto w-[70vw] md:w-[30vw]  flex flex-col gap-4 justify-center py-6 items-center  border-purple-600 shadow rounded-3xl  shadow-2xl shadow-purple-950'>
       <img className='py-2 w-[30vw] h-[22vh] md:w-[30vw] md:h-[22vh] object-contain' src={item.profile} alt="" />
       <span className='text-[#36454F] font-semibold text-3xl'>@{item.handle}</span>
       <span className='font-semibold px-2 md:px-6'>{item.desc}</span>

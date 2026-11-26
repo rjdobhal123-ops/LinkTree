@@ -2,20 +2,29 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from "next/navigation";
+import { useState } from 'react';
+
 
 
 const Navbar = () => {
      const pathname = usePathname()
     const showNavbar = ["/", "/generate"].includes(pathname)
+
+    const [openMenu, setopenMenu] = useState(false)
      
     
   return (<>{showNavbar && 
-   <nav className='bg-white w-[90vw] flex justify-between rounded-full   my-8 absolute py-2 px-8 left-[5vw] right-[5vw] ' >
+   <nav className='bg-white  w-[90vw] flex justify-between rounded-full   my-8 absolute py-1 md:py-2 px-8 left-[5vw] right-[5vw] ' >
     
-    <div className='flex gap-10 justify-center items-center'>
-        <svg className=' w-[130px] h-[25px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 494.1 100" role="img" aria-label="Linktree" width="118" height="28" className="block h-auto w-full max-sm:hidden text-black"><path fill="currentColor" d="M0 10.7h14.2v74.5h39.3v13.1H0V10.7zm67.5 0c4.8 0 8.9 3.7 8.9 8.6 0 4.9-4 8.8-8.9 8.8s-8.9-3.9-8.9-8.8c0-4.8 3.9-8.6 8.9-8.6zm-7 24.5h13.6v63.2H60.5V35.2zm21.7 0h13.6v8.7c4-6.7 10.9-10.4 20.1-10.4 14.8 0 24 11.5 24 29.7v35.1h-13.6V64.5c0-11.8-5.2-18.5-14.5-18.5-10.3 0-15.9 7-15.9 19.6v32.7H82.2V35.2zm64.9-24.5h13.6v55.4l25.4-30.9h17.1l-27.1 31.6 27.1 31.5h-17.1l-25.4-30.8v30.8h-13.6V10.7zm61.5 8.4h13.9v16.1h16.2v11.3h-16.2V79c0 4.1 2.5 6.7 6.5 6.7h9.1v12.7h-10.9c-11.8 0-18.5-7-18.5-19.4l-.1-59.9zm37 16.1h12.6V43c3.4-6 9-9.5 15.9-9.5 2.1 0 3.2.1 4.8.6v12.6c-.9-.2-2.3-.5-5.1-.5-10 0-15.5 8.4-15.5 22.8v29.2h-13.6v-63h.9zm65.2-1.7c15 0 31.3 9 31.3 34.7V70h-48.8c1.1 11.3 7.6 17.5 18.6 17.5 7.9 0 14.5-4.2 16-10.1h13.9c-1.5 12.6-14.7 22.6-30 22.6-19.6 0-32-12.7-32-33.3 0-18.3 11.9-33.2 31-33.2zm16.7 25.3c-1.9-7.8-8.1-12.7-16.7-12.7-8.3 0-14.2 5-16.5 12.7h33.2zm51.6-25.3c15 0 31.3 9 31.3 34.7V70h-48.8c1.1 11.3 7.6 17.5 18.6 17.5 7.9 0 14.5-4.2 16-10.1H410C408.6 90 395.4 100 380.1 100c-19.6 0-32-12.7-32-33.3 0-18.3 11.9-33.2 31-33.2zm16.7 25.3c-1.9-7.8-8.1-12.7-16.8-12.7-8.3 0-14.2 5-16.5 12.7h33.3zm17.9-25.5H438l-17.3-16.4 9.5-9.7L446.7 24V0H461v24l16.5-16.8 9.5 9.7-17.3 16.4H494v13.6h-24.5L487 63.7l-9.5 9.5-23.7-23.7-23.7 23.7-9.5-9.5L438 46.8h-24.5V33.3h.2zm33.1 32.9h14.3v32.2h-14.3V66.2z"></path></svg>
+    <div className='flex w-full md:w-auto  md:gap-10 justify-between md:justify-center  items-center'>
+        <svg className='w-[10px] h-[10px] md:w-[130px] md:h-[25px]' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 494.1 100" role="img" aria-label="Linktree" width="118" height="28" className="block w-[100px] h-[30px] text-black"><path fill="currentColor" d="M0 10.7h14.2v74.5h39.3v13.1H0V10.7zm67.5 0c4.8 0 8.9 3.7 8.9 8.6 0 4.9-4 8.8-8.9 8.8s-8.9-3.9-8.9-8.8c0-4.8 3.9-8.6 8.9-8.6zm-7 24.5h13.6v63.2H60.5V35.2zm21.7 0h13.6v8.7c4-6.7 10.9-10.4 20.1-10.4 14.8 0 24 11.5 24 29.7v35.1h-13.6V64.5c0-11.8-5.2-18.5-14.5-18.5-10.3 0-15.9 7-15.9 19.6v32.7H82.2V35.2zm64.9-24.5h13.6v55.4l25.4-30.9h17.1l-27.1 31.6 27.1 31.5h-17.1l-25.4-30.8v30.8h-13.6V10.7zm61.5 8.4h13.9v16.1h16.2v11.3h-16.2V79c0 4.1 2.5 6.7 6.5 6.7h9.1v12.7h-10.9c-11.8 0-18.5-7-18.5-19.4l-.1-59.9zm37 16.1h12.6V43c3.4-6 9-9.5 15.9-9.5 2.1 0 3.2.1 4.8.6v12.6c-.9-.2-2.3-.5-5.1-.5-10 0-15.5 8.4-15.5 22.8v29.2h-13.6v-63h.9zm65.2-1.7c15 0 31.3 9 31.3 34.7V70h-48.8c1.1 11.3 7.6 17.5 18.6 17.5 7.9 0 14.5-4.2 16-10.1h13.9c-1.5 12.6-14.7 22.6-30 22.6-19.6 0-32-12.7-32-33.3 0-18.3 11.9-33.2 31-33.2zm16.7 25.3c-1.9-7.8-8.1-12.7-16.7-12.7-8.3 0-14.2 5-16.5 12.7h33.2zm51.6-25.3c15 0 31.3 9 31.3 34.7V70h-48.8c1.1 11.3 7.6 17.5 18.6 17.5 7.9 0 14.5-4.2 16-10.1H410C408.6 90 395.4 100 380.1 100c-19.6 0-32-12.7-32-33.3 0-18.3 11.9-33.2 31-33.2zm16.7 25.3c-1.9-7.8-8.1-12.7-16.8-12.7-8.3 0-14.2 5-16.5 12.7h33.3zm17.9-25.5H438l-17.3-16.4 9.5-9.7L446.7 24V0H461v24l16.5-16.8 9.5 9.7-17.3 16.4H494v13.6h-24.5L487 63.7l-9.5 9.5-23.7-23.7-23.7 23.7-9.5-9.5L438 46.8h-24.5V33.3h.2zm33.1 32.9h14.3v32.2h-14.3V66.2z"></path></svg>
 
-        <ul className='flex gap-4 text-black font-semibold'>
+
+        <button className='md:hidden text-3xl font-bold' onClick={()=>setopenMenu(!openMenu)}>☰</button>
+
+
+        {/* Desktop menu */}
+        <ul className=' hidden md:flex   gap-4 text-black font-semibold'>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/History">History</Link></li>
             <li><Link href="">Features</Link></li>
@@ -24,10 +33,26 @@ const Navbar = () => {
             <li><Link href="">Pricing</Link></li>
         </ul>
     </div>
-    <div className='flex gap-4'>
+    <div className='hidden md:flex gap-4'>
         <button className='text-lg'><Link href="/generate">Log in</Link></button>
         <button className='bg-gray-800 rounded-full text-white w-[130px]  font-bold py-4'> <Link href="/generate">Sign up free</Link></button>
     </div>
+ 
+
+    {/* Mobile Menu */}
+    {openMenu && <><ul className=' text-xl  flex flex-col absolute w-full top-16 left-0 bg-lime-100 rounded-2xl  gap-6 text-black font-semibold md:hidden'>
+            <li className='px-4 border-b-2 py-2   border-black'><Link href="/">Home</Link></li>
+            <li className='px-4 border-b-2 py-2   border-black'><Link href="/History">History</Link></li>
+            <li className='px-4 border-b-2 py-2   border-black'><Link href="">Features</Link></li>
+            <li className='px-4 border-b-2 py-2   border-black'><Link href="">Integrations</Link></li>
+            <li className='px-4 border-b-2 py-2   border-black'><Link href="">Resource</Link></li>
+            <li className='px-4 border-b-2 py-2   border-black'><Link href="">Pricing</Link></li>
+             <div className='  flex  py-2  w-full  left-0   gap-4 text-black font-semibold md:hidden'>
+        <button className='text-lg px-6 '><Link href="/generate">Log in</Link></button>
+        <button className='bg-gray-800  rounded-full text-white w-[150px]  font-bold py-3 px-1'> <Link href="/generate">Sign up free</Link></button>
+    </div>
+        </ul>
+   </>}
     
    </nav>}
    </>

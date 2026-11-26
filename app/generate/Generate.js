@@ -75,11 +75,11 @@ const submitlinks= async ()=>{
   return (
     
 
-    <div className='grid grid-cols-2 bg-[#e8efd6] text-black min-h-screen py-30'>
+    <div className='flex flex-col md:grid md:grid-cols-2 bg-[#e8efd6] text-black min-h-screen py-[8vh] md:py-[30vh] md:py-30'>
 
         
 
-      <div className="form flex flex-col gap-8 justify-center items-center">
+      <div className="form flex flex-col gap-8 justify-center items-center px-6">
         <h1 className='text-3xl font-bold'>Create your LinkTree</h1>
 
         <div className='flex flex-col gap-2 justify-center items-center'>
@@ -113,7 +113,7 @@ const submitlinks= async ()=>{
 
       {/* Image */}
       <div className="image flex justify-center items-center">
-        <img className='w-full h-[50vh] object-contain' src="https://linktr.ee/_marketing/images/heroes/home-section-4-mobile.avif" alt="image" />
+        <img className='w-[80vw] md:w-full h-[50vh] object-contain' src="https://linktr.ee/_marketing/images/heroes/home-section-4-mobile.avif" alt="image" />
       </div>
 
       <ToastContainer/>
